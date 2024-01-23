@@ -7,9 +7,20 @@ const app = express();
 const port = process.env.PORT || 5000;
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 // middleware
 app.use(cors());
+// const corsConfig={
+//   origin:'',
+//   credentials:true,
+//   methods:["GET","POST","PUT","DELETE"]
+// }
+// app.use(cors(corsConfig))
+// app.options('',cors(corsConfig))
 app.use(express.json());
+
+
+
 
 // console.log(process.env.DB_USER)
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.z9eijhl.mongodb.net/?retryWrites=true&w=majority`;
